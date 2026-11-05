@@ -74,8 +74,15 @@ const AUTO=location.hash==='#auto';
 const log=t=>{if(!AUTO){$('log').textContent+=t+'\n';$('log').scrollTop=1e9}};
 async function api(action,body){
   const c=cfg();if(!c.url||!c.key)throw new Error('Renseignez l’URL et la clé, puis Enregistrez.');
-  let r;try{r=await fetch(c.url,{method:'POST',credentials:'omit',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({key:c.key,action},body))})}catch(e){throw new Error('Failed to fetch (envoi bloqué)')}
-  let j;try{j=await r.json()}catch(e){throw new Error('Réponse illisible de Google (HTTP '+r.status+') : le script n’est probablement pas autorisé ou pas redéployé')}if(!j.ok)throw new Error(j.err||'Erreur du script');return j}
+  const payload=JSON.stringify(Object.assign({key:c.key,action},body)),t0=Date.now();
+  for(let n=1;;n++){
+    let r;
+    try{r=await fetch(c.url,{method:'POST',credentials:'omit',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload})}
+    catch(e){if(n<2){await new Promise(z=>setTimeout(z,2500));continue}
+      throw new Error('Failed to fetch (envoi bloqué) · action « '+action+' » · '+Math.max(1,Math.round(payload.length/1024))+' Ko · '+Math.round((Date.now()-t0)/1000)+' s')}
+    let j;try{j=await r.json()}catch(e){throw new Error('Réponse illisible de Google (HTTP '+r.status+') : le script n’est probablement pas autorisé ou pas redéployé')}
+    if(!j.ok)throw new Error(j.err||'Erreur du script');return j}
+}
 async function toDrive(it,m){const o=Object.assign({},it);
   for(const k of Object.keys(o)){const v=o[k];if(typeof v==='string'&&v.startsWith('data:image')){const f=hs(v);if(!m[f]){log('  ↑ envoi d’une image vers Drive…');m[f]=(await api('upload',{name:k+'-'+it.id+'.png',data:v})).id}o[k]='drive:'+m[f]}}
   return o}
@@ -114,7 +121,11 @@ async function diag(){
   if(!/^https:\/\/script\.google\.com\/macros\/s\/[^\/\s]+\/exec$/.test(c.url||''))log('⚠ L’URL doit ressembler à https://script.google.com/macros/s/…/exec, sans espace ni texte autour.');
   let g=false;try{const r=await fetch(c.url+'?action=ping',{credentials:'omit'});const t=await r.text();g=r.ok&&t.includes('"ok":true');log('1) Lecture (GET) : '+(g?'✔ le script répond':'✖ réponse inattendue (HTTP '+r.status+')'))}catch(e){log('1) Lecture (GET) : ✖ bloquée ('+e.message+')')}
   let p=false,pm='';try{await api('ping');p=true;log('2) Envoi (POST) + clé : ✔ accepté')}catch(e){pm=e.message;log('2) Envoi (POST) + clé : ✖ '+pm)}
-  if(g&&p)log('➜ Tout fonctionne. Cliquez « Synchroniser maintenant ».');
+  let s3=true;
+  if(p){try{await api('sync',{name:'certificats',items:[],dels:[]});log('3) Lecture du Sheet (action sync) : ✔ ok')}catch(e){s3=false;log('3) Lecture du Sheet (action sync) : ✖ '+e.message)}
+    try{await api('ping',{pad:'x'.repeat(30000)});log('4) Envoi de 30 Ko : ✔ ok')}catch(e){log('4) Envoi de 30 Ko : ✖ '+e.message)}}
+  if(g&&p&&s3)log('➜ Tout fonctionne. Cliquez « Synchroniser maintenant ».');
+  else if(g&&p)log('➜ Le script accepte les envois simples mais plante en accédant au Sheet. Dans Apps Script, ouvrez « Exécutions » (menu de gauche) : la dernière ligne en échec indique l’erreur exacte. Vérifiez aussi ID_SHEET.');
   else if(!g)log('➜ L’URL est incorrecte, ou l’accès n’est pas « Tout le monde », ou un bloqueur (extension, antivirus) empêche la connexion. Collez à nouveau l’URL /exec depuis « Gérer les déploiements ».');
   else if(/Failed to fetch|illisible/.test(pm))log('➜ Le script répond, mais refuse l’envoi : dans l’éditeur Apps Script, choisissez la fonction doPost, cliquez Exécuter et acceptez les autorisations ; puis Déployer → Gérer les déploiements → ✏️ → Nouvelle version → Déployer.');
   else log('➜ Corrigez le point indiqué ci-dessus.');
