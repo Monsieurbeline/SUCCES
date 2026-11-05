@@ -1,13 +1,19 @@
 {
- "name": "Caisse Populaire SUCCES – Outils",
+ "id": "./",
+ "name": "Caisse Populaire SUCCES – Outils Internes",
  "short_name": "SUCCES",
- "description": "Anniversaires et certificats de stage",
- "start_url": "./",
+ "description": "Anniversaires, certificats de stage, communiqués et simulateurs",
+ "start_url": "./?source=pwa",
  "scope": "./",
  "display": "standalone",
-  "background_color": "#2d7d1f",
+ "orientation": "any",
+ "background_color": "#2d7d1f",
  "theme_color": "#1b5e20",
  "lang": "fr",
+ "categories": [
+  "business",
+  "productivity"
+ ],
  "icons": [
   {
    "src": "icon-192.png",
@@ -26,6 +32,56 @@
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Anniversaires",
+   "short_name": "Anniversaires",
+   "url": "./#anniversaires",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Certificats de stage",
+   "short_name": "Certificats de stage",
+   "url": "./#certificats",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Communiqués",
+   "short_name": "Communiqués",
+   "url": "./#communiques",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Simulateurs",
+   "short_name": "Simulateurs",
+   "url": "./#simulateurs",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
   }
  ]
 }
