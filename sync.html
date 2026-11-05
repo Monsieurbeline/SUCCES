@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1b5e20">
+<script>try{if(!sessionStorage.getItem('succes_ok'))location.replace('index.html');if(window.self!==window.top)document.documentElement.classList.add('emb')}catch(e){}</script>
+<link rel="icon" href="icon-192.png"><title>Synchronisation – SUCCES</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+:root{--g1:#1b5e20;--g2:#2d7d1f;--g3:#7dba48;--bg:#eef3ea;--ink:#1f3a14;--mut:#5f7355;--line:#d3dfca;--gold:#f0c919;--red:#b3261e;--card:#fff;--btxt:#1b5e20}
+body.dark{--bg:#11160e;--ink:#e4eede;--mut:#9db291;--line:#2d3b27;--card:#1b2317;--btxt:#a9e08a}body.dark input,body.dark select{border-color:#44563b}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+button,input,select{font:inherit;color:inherit}
+input,select{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font-size:1rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;background:var(--g2);color:#fff;font-size:.9rem;white-space:nowrap}
+.btn.alt{background:var(--card);color:var(--btxt);border:1px solid var(--line)}.btn.del{background:var(--card);color:var(--red);border:1px solid #efc9c6}
+.btn.sm{padding:7px 10px;font-size:.8rem}.btn:disabled{opacity:.6}
+label{display:grid;gap:4px;font-size:.8rem;font-weight:600}
+header{background:var(--g1);color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:5}
+header h1{font-size:1rem;line-height:1.15}header h1 b{font-weight:800;display:block;font-size:1.15rem}
+.hl{display:flex;align-items:center;gap:10px;min-width:0}.hr{display:flex;gap:8px}
+.logoimg{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;flex:none}.bell{padding:7px 11px;font-size:1.1rem}
+@media(max-width:479px){.hd{display:none}}
+main{max-width:900px;margin:0 auto;padding:14px 12px 90px}
+.tools{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:12px}.tools .s{grid-column:1/-1}
+.stats{font-size:.8rem;color:var(--mut);margin-bottom:12px}
+.list{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;grid-template-columns:56px 1fr;gap:10px 12px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;background:var(--g2);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem;text-transform:uppercase}
+.nm{font-weight:600;line-height:1.2}.nm small{display:block;font-weight:400;color:var(--mut);font-size:.8rem;margin-top:2px}
+.dt{font-size:.8rem;color:var(--mut);margin-top:3px}
+.badge{display:inline-block;background:var(--gold);color:#5a3a00;border-radius:99px;padding:1px 8px;font-size:.7rem;font-weight:600;margin-left:6px}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:var(--mut);padding:30px 10px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:6;box-shadow:0 6px 18px rgba(0,0,0,.25);padding:14px 18px;border-radius:99px}
+.modal{position:fixed;inset:0;background:rgba(10,25,5,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center;overflow:auto}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:18px 18px 0 0;padding:16px;display:grid;gap:12px;max-height:100vh;overflow:auto}
+.sheet{grid-auto-rows:max-content;align-content:start}.sheet h2{font-size:1.1rem}.g2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.bar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.sec{display:grid;gap:8px;padding-top:10px;border-top:1px solid var(--line)}.sec h3{font-size:.85rem;color:var(--btxt)}.msgok{font-size:.8rem;color:var(--mut)}
+.ck{display:flex;align-items:center;gap:6px;font-weight:500;font-size:.88rem}.ck input{width:auto}.cks{display:flex;flex-wrap:wrap;gap:6px 14px}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:8px}legend{font-size:.78rem;font-weight:600;padding:0 4px}
+.cpv{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);background:#e9ecf3}
+@media(min-width:600px){.modal{align-items:center}.sheet{border-radius:18px}.item{grid-template-columns:56px 1fr auto}.acts{grid-column:auto}.tools{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}.hint{font-size:.78rem;color:var(--mut)}</style></head><body><header><div class="hl"><img class="logoimg" src="icon-192.png" alt="Logo"><h1><span class="hd">Caisse Populaire </span><b>SUCCES</b></h1></div><div class="hr"></div></header><main>
+<div class="card" style="background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px">
+  <h2 style="font-size:1.05rem">🔄 Synchronisation Google Sheets + Drive</h2>
+  <label>URL de l’application web (Apps Script)<input id="url" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"></label>
+  <label>Clé secrète<input id="key" type="password" autocomplete="off"></label>
+  <div class="g2"><button class="btn alt" id="save">Enregistrer</button><button class="btn alt" id="test">Tester la connexion</button></div>
+  <button class="btn" id="go">Synchroniser maintenant</button>
+  <div class="stats" id="last"></div>
+  <pre id="log" style="background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:.8rem;white-space:pre-wrap;max-height:240px;overflow:auto;min-height:3em"></pre>
+</div>
+<details style="margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px"><summary style="font-weight:600">Mode d’emploi (à faire une seule fois)</summary>
+<ol style="padding-left:20px;display:grid;gap:6px;margin-top:10px;font-size:.88rem">
+<li>Créez un Google Sheet vide, par exemple « SUCCES – Données », avec le compte Google de la Caisse.</li>
+<li>Menu <b>Extensions → Apps Script</b>. Supprimez le code existant et collez le contenu du fichier <b>google-apps-script/Code.gs</b>.</li>
+<li>Remplacez <b>CHANGEZ-MOI…</b> par une longue phrase secrète (au moins 20 caractères), puis enregistrez.</li>
+<li><b>Déployer → Nouveau déploiement → Application Web</b> : <i>Exécuter en tant que : Moi</i> ; <i>Qui a accès : Tout le monde</i>. Autorisez l’accès à Sheets et Drive, puis copiez l’URL se terminant par <b>/exec</b>.</li>
+<li>Collez l’URL et la clé ci-dessus, cliquez <b>Tester</b> puis <b>Synchroniser</b>. Répétez sur chaque appareil (même URL, même clé).</li>
+<li>Pour la <b>vérification publique</b> des certificats : collez la même URL (sans la clé) dans le fichier <b>config.js</b> du projet.</li>
+<li>Après toute modification du script : <b>Déployer → Gérer les déploiements → Modifier → Nouvelle version</b>.</li></ol>
+<p class="hint" style="margin-top:8px">Les images (photos, signature) sont rangées dans le dossier Drive « SUCCES-images », qui reste privé. Dans le Sheet, la colonne « json » est la source : modifiez les données dans l’application, pas dans le Sheet.</p></details>
+</main><script>
+const $=id=>document.getElementById(id);
+const rd=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}};
+const wr=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const cfg=()=>rd('succes_sync',{});
+const hs=s=>{let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return(h>>>0).toString(36)+s.length};
+const COL=[{n:'certificats',k:'cs_reg'},{n:'communiques',k:'cm_list'},{n:'anniversaires',k:'succes_fetes'},{n:'reglages',k:'cs_set',one:1}];
+const AUTO=location.hash==='#auto';
+const log=t=>{if(!AUTO){$('log').textContent+=t+'\n';$('log').scrollTop=1e9}};
+async function api(action,body){
+  const c=cfg();if(!c.url||!c.key)throw new Error('Renseignez l’URL et la clé, puis Enregistrez.');
+  const r=await fetch(c.url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({key:c.key,action},body))});
+  const j=await r.json();if(!j.ok)throw new Error(j.err||'Erreur du script');return j}
+async function toDrive(it,m){const o=Object.assign({},it);
+  for(const k of Object.keys(o)){const v=o[k];if(typeof v==='string'&&v.startsWith('data:image')){const f=hs(v);if(!m[f]){log('  ↑ envoi d’une image vers Drive…');m[f]=(await api('upload',{name:k+'-'+it.id+'.png',data:v})).id}o[k]='drive:'+m[f]}}
+  return o}
+async function fromDrive(srv,loc,m){const o=Object.assign({},srv),L=loc||{};
+  for(const k of Object.keys(o)){const v=o[k];if(typeof v==='string'&&v.startsWith('drive:')){const id=v.slice(6);
+    if(typeof L[k]==='string'&&L[k].startsWith('data:image')&&m[hs(L[k])]===id)o[k]=L[k];
+    else{log('  ↓ récupération d’une image depuis Drive…');const d=(await api('image',{id})).data;m[hs(d)]=id;o[k]=d}}}
+  return o}
+const strip=it=>{const r=Object.assign({},it);delete r.u;return JSON.stringify(r)};
+async function syncCol(c){
+  const m=rd('succes_imgmap',{}),snap=rd('succes_snap_'+c.n,{}),raw=rd(c.k,c.one?{}:[]);
+  const items=c.one?(Object.keys(raw).length?[Object.assign({id:'cfg'},raw)]:[]):raw.slice();
+  const now=Date.now(),cur={};let sent=0;
+  items.forEach(it=>{const h=hs(strip(it));cur[it.id]=h;if(snap[it.id]!==h||!it.u){it.u=now;sent++}});
+  const dels=Object.keys(snap).filter(id=>!(id in cur));
+  const push=[];for(const it of items)push.push(await toDrive(it,m));
+  const r=await api('sync',{name:c.n,items:push,dels});
+  const loc={};items.forEach(it=>loc[it.id]=it);
+  const out=[];for(const s of r.items)out.push(await fromDrive(s,loc[s.id],m));
+  const before=JSON.stringify(items.map(strip).sort()),after=JSON.stringify(out.map(strip).sort());
+  if(c.one){if(out[0]){const o=Object.assign({},out[0]);delete o.id;wr(c.k,o)}}else wr(c.k,out);
+  const ns={};out.forEach(it=>ns[it.id]=hs(strip(it)));wr('succes_snap_'+c.n,ns);wr('succes_imgmap',m);
+  log('✔ '+c.n+' : '+out.length+' élément(s) · envoyés '+sent+' · supprimés '+dels.length);
+  return before!==after;
+}
+async function all(){
+  let ch=false;$('go')&&($('go').disabled=true);
+  try{log('Synchronisation en cours…');for(const c of COL){if(await syncCol(c))ch=true}
+    localStorage.setItem('succes_lastsync',String(Date.now()));log(ch?'Terminé : des données ont été mises à jour.':'Terminé : tout est à jour.');
+    if(ch&&window.parent!==window&&parent.reloadTools)parent.reloadTools();showLast()}
+  catch(e){log('✖ '+e.message);if(!AUTO&&/Failed to fetch|NetworkError/i.test(e.message))log('Vérifiez la connexion internet et l’URL du script (accès « Tout le monde »).')}
+  $('go')&&($('go').disabled=false)}
+function showLast(){const t=+localStorage.getItem('succes_lastsync');$('last').textContent=t?'Dernière synchronisation : '+new Date(t).toLocaleString('fr-FR'):'Jamais synchronisé.'}
+const c0=cfg();$('url').value=c0.url||'';$('key').value=c0.key||'';showLast();
+$('save').onclick=()=>{wr('succes_sync',{url:$('url').value.trim(),key:$('key').value.trim()});log('Configuration enregistrée.')};
+$('test').onclick=async()=>{$('save').click();try{await api('ping');log('✔ Connexion réussie.')}catch(e){log('✖ '+e.message)}};
+$('go').onclick=()=>{$('save').click();all()};
+if(AUTO&&c0.url&&c0.key)setTimeout(all,1500);
+</script><script>try{document.body.classList.toggle("dark",localStorage.getItem("succes_dark")==="1")}catch(e){}</script></body></html>

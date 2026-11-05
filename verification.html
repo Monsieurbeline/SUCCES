@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1b5e20">
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('emb')}catch(e){}</script>
+<link rel="icon" href="icon-192.png"><title>Vérification de certificat – SUCCES</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Bebas+Neue&display=swap">
+<style>
+:root{--g1:#1b5e20;--g2:#2d7d1f;--g3:#7dba48;--bg:#eef3ea;--ink:#1f3a14;--mut:#5f7355;--line:#d3dfca;--gold:#f0c919;--red:#b3261e;--card:#fff;--btxt:#1b5e20}
+body.dark{--bg:#11160e;--ink:#e4eede;--mut:#9db291;--line:#2d3b27;--card:#1b2317;--btxt:#a9e08a}body.dark input,body.dark select{border-color:#44563b}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+button,input,select{font:inherit;color:inherit}
+input,select{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font-size:1rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;background:var(--g2);color:#fff;font-size:.9rem;white-space:nowrap}
+.btn.alt{background:var(--card);color:var(--btxt);border:1px solid var(--line)}.btn.del{background:var(--card);color:var(--red);border:1px solid #efc9c6}
+.btn.sm{padding:7px 10px;font-size:.8rem}.btn:disabled{opacity:.6}
+label{display:grid;gap:4px;font-size:.8rem;font-weight:600}
+header{background:var(--g1);color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:5}
+header h1{font-size:1rem;line-height:1.15}header h1 b{font-weight:800;display:block;font-size:1.15rem}
+.hl{display:flex;align-items:center;gap:10px;min-width:0}.hr{display:flex;gap:8px}
+.logoimg{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;flex:none}.bell{padding:7px 11px;font-size:1.1rem}
+@media(max-width:479px){.hd{display:none}}
+main{max-width:900px;margin:0 auto;padding:14px 12px 90px}
+.tools{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:12px}.tools .s{grid-column:1/-1}
+.stats{font-size:.8rem;color:var(--mut);margin-bottom:12px}
+.list{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;grid-template-columns:56px 1fr;gap:10px 12px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;background:var(--g2);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem;text-transform:uppercase}
+.nm{font-weight:600;line-height:1.2}.nm small{display:block;font-weight:400;color:var(--mut);font-size:.8rem;margin-top:2px}
+.dt{font-size:.8rem;color:var(--mut);margin-top:3px}
+.badge{display:inline-block;background:var(--gold);color:#5a3a00;border-radius:99px;padding:1px 8px;font-size:.7rem;font-weight:600;margin-left:6px}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:var(--mut);padding:30px 10px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:6;box-shadow:0 6px 18px rgba(0,0,0,.25);padding:14px 18px;border-radius:99px}
+.modal{position:fixed;inset:0;background:rgba(10,25,5,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center;overflow:auto}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:18px 18px 0 0;padding:16px;display:grid;gap:12px;max-height:100vh;overflow:auto}
+.sheet{grid-auto-rows:max-content;align-content:start}.sheet h2{font-size:1.1rem}.g2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.bar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.sec{display:grid;gap:8px;padding-top:10px;border-top:1px solid var(--line)}.sec h3{font-size:.85rem;color:var(--btxt)}.msgok{font-size:.8rem;color:var(--mut)}
+.ck{display:flex;align-items:center;gap:6px;font-weight:500;font-size:.88rem}.ck input{width:auto}.cks{display:flex;flex-wrap:wrap;gap:6px 14px}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:8px}legend{font-size:.78rem;font-weight:600;padding:0 4px}
+.cpv{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);background:#e9ecf3}
+@media(min-width:600px){.modal{align-items:center}.sheet{border-radius:18px}.item{grid-template-columns:56px 1fr auto}.acts{grid-column:auto}.tools{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}
+@media(max-width:800px){.emb header{padding-left:58px}}textarea{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font:inherit;font-size:1rem;resize:vertical}
+.v{border-radius:14px;padding:16px;display:grid;gap:8px}.v.ok{background:#e3f4dc;color:#14440f}.v.ko{background:#fde8e6;color:#8a1c14}.v h2{font-size:1.25rem}.v dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.92rem}.v dt{font-weight:600}body.dark .v.ok{background:#1d3a17;color:#cfeec0}body.dark .v.ko{background:#3d1b18;color:#f6c9c4}</style></head><body><header><div class="hl"><img class="logoimg" src="icon-192.png" alt="Logo"><h1><span class="hd">Caisse Populaire </span><b>SUCCES</b></h1></div><div class="hr"></div></header><main><div id="out"></div>
+<form class="card" id="vf" onsubmit="return false" style="margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:10px">
+<h2 style="font-size:1rem">Vérifier un certificat par sa référence</h2>
+<label>Référence (ex. CS-2024-0001)<input id="rf" autocomplete="off" placeholder="CS-2024-0001"></label><button class="btn" id="vb">Vérifier</button>
+<p class="stats">Mode essai : la recherche par référence interroge le registre enregistré sur cet appareil. Le scan du QR code, lui, vérifie la signature contenue dans le code et fonctionne sur n’importe quel téléphone.</p></form></main><script src="config.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const SEC='SUCCES-2026';
+const H=s=>{let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0,c;i<s.length;i++){c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return(4294967296*(2097151&h2)+(h1>>>0)).toString(36)};
+const MOIS=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const fd=s=>{if(!s)return '…';const m=s.match(/^(\d{4})-?(\d{2})-?(\d{2})$/);return m?(+m[3]===1?'1er':+m[3])+' '+MOIS[m[2]-1]+' '+m[1]:s};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const reg=()=>{try{return JSON.parse(localStorage.getItem('cs_reg'))||[]}catch(e){return []}};
+const card=(ok,t,rows,note)=>`<div class="v ${ok?'ok':'ko'}"><h2>${ok?'✅':'❌'} ${t}</h2><dl>${rows.map(r=>`<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl>${note?`<div class="stats" style="color:inherit">${note}</div>`:''}</div>`;
+function fromQR(q){
+  const r=q.get('r'),n=q.get('n')||'',p=q.get('p')||'',h=q.get('h'),[a,b]=p.split('-'),ok=!!r&&H(SEC+'|'+r+'|'+n+'|'+p)===h;
+  const e=reg().find(x=>x.ref===r),rows=[['Référence',r||'—'],['Délivré à',n||'—'],['Période de stage','du '+fd(a)+' au '+fd(b)]];
+  if(!ok)return card(false,'Certificat non authentique',rows,'Le code ne correspond pas aux informations indiquées. Ne considérez pas ce document comme valide.');
+  let note='La signature du QR code est valide.';
+  if(e){rows.push(['Lieu de stage',e.lieu],['Date d’émission',fd(e.dt)]);note+=' Ce certificat figure aussi dans le registre de cet appareil.'}
+  return card(true,'Certificat authentique',rows,note);
+}
+function byRef(ref){
+  const e=reg().find(x=>x.ref.toLowerCase()===ref.trim().toLowerCase());
+  return e?card(true,'Certificat trouvé dans le registre',[['Référence',e.ref],['Délivré à',e.pre+' '+e.nom],['Lieu de stage',e.lieu],['Période','du '+fd(e.d1)+' au '+fd(e.d2)],['Date d’émission',fd(e.dt)]],'Trouvé dans le registre enregistré sur cet appareil.')
+   :card(false,'Aucun certificat trouvé',[['Référence',ref||'—']],'Aucune correspondance dans le registre de cet appareil (mode essai).');
+}
+const q=new URLSearchParams(location.search);
+const API=(typeof SUCCES_API!=='undefined'&&SUCCES_API)||(()=>{try{return JSON.parse(localStorage.getItem('succes_sync')).url||''}catch(e){return ''}})();
+async function remote(ref){try{const r=await fetch(API+(API.includes('?')?'&':'?')+'action=verify&ref='+encodeURIComponent(ref));return await r.json()}catch(e){return null}}
+if(q.get('r')&&q.get('h')){$('out').innerHTML=fromQR(q)+'<div class="stats" id="rm"></div>';
+ if(API){$('rm').textContent='Vérification dans le registre en ligne…';remote(q.get('r')).then(j=>{$('rm').textContent=!j?'Registre en ligne injoignable : seule la signature du QR code a été vérifiée.':j.found?'✅ Ce certificat figure bien dans le registre officiel de la Caisse.':'⚠️ Aucun certificat de cette référence dans le registre officiel (non enregistré ou annulé).'})}}
+$('vb').onclick=async()=>{const v=$('rf').value.trim();if(!v)return;if(!API){$('out').innerHTML=byRef(v);return}
+ $('out').innerHTML='<div class="stats">Recherche…</div>';const j=await remote(v);
+ $('out').innerHTML=!j?byRef(v):j.found?card(true,'Certificat trouvé dans le registre officiel',[['Référence',v],['Délivré à',j.pre+' '+j.nom],['Lieu de stage',j.lieu],['Période','du '+fd(j.d1)+' au '+fd(j.d2)],['Date d’émission',fd(j.dt)]],''):card(false,'Aucun certificat trouvé',[['Référence',v]],'Aucune correspondance dans le registre officiel.')};
+</script><script>try{document.body.classList.toggle("dark",localStorage.getItem("succes_dark")==="1")}catch(e){}</script></body></html>

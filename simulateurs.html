@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1b5e20">
+<script>try{if(!sessionStorage.getItem('succes_ok'))location.replace('index.html');if(window.self!==window.top)document.documentElement.classList.add('emb')}catch(e){}</script>
+<link rel="icon" href="icon-192.png"><title>Simulateurs – SUCCES</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Bebas+Neue&display=swap">
+<style>
+:root{--g1:#1b5e20;--g2:#2d7d1f;--g3:#7dba48;--bg:#eef3ea;--ink:#1f3a14;--mut:#5f7355;--line:#d3dfca;--gold:#f0c919;--red:#b3261e;--card:#fff;--btxt:#1b5e20}
+body.dark{--bg:#11160e;--ink:#e4eede;--mut:#9db291;--line:#2d3b27;--card:#1b2317;--btxt:#a9e08a}body.dark input,body.dark select{border-color:#44563b}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+button,input,select{font:inherit;color:inherit}
+input,select{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font-size:1rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;background:var(--g2);color:#fff;font-size:.9rem;white-space:nowrap}
+.btn.alt{background:var(--card);color:var(--btxt);border:1px solid var(--line)}.btn.del{background:var(--card);color:var(--red);border:1px solid #efc9c6}
+.btn.sm{padding:7px 10px;font-size:.8rem}.btn:disabled{opacity:.6}
+label{display:grid;gap:4px;font-size:.8rem;font-weight:600}
+header{background:var(--g1);color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:5}
+header h1{font-size:1rem;line-height:1.15}header h1 b{font-weight:800;display:block;font-size:1.15rem}
+.hl{display:flex;align-items:center;gap:10px;min-width:0}.hr{display:flex;gap:8px}
+.logoimg{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;flex:none}.bell{padding:7px 11px;font-size:1.1rem}
+@media(max-width:479px){.hd{display:none}}
+main{max-width:900px;margin:0 auto;padding:14px 12px 90px}
+.tools{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:12px}.tools .s{grid-column:1/-1}
+.stats{font-size:.8rem;color:var(--mut);margin-bottom:12px}
+.list{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;grid-template-columns:56px 1fr;gap:10px 12px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;background:var(--g2);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem;text-transform:uppercase}
+.nm{font-weight:600;line-height:1.2}.nm small{display:block;font-weight:400;color:var(--mut);font-size:.8rem;margin-top:2px}
+.dt{font-size:.8rem;color:var(--mut);margin-top:3px}
+.badge{display:inline-block;background:var(--gold);color:#5a3a00;border-radius:99px;padding:1px 8px;font-size:.7rem;font-weight:600;margin-left:6px}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:var(--mut);padding:30px 10px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:6;box-shadow:0 6px 18px rgba(0,0,0,.25);padding:14px 18px;border-radius:99px}
+.modal{position:fixed;inset:0;background:rgba(10,25,5,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center;overflow:auto}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:18px 18px 0 0;padding:16px;display:grid;gap:12px;max-height:100vh;overflow:auto}
+.sheet{grid-auto-rows:max-content;align-content:start}.sheet h2{font-size:1.1rem}.g2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.bar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.sec{display:grid;gap:8px;padding-top:10px;border-top:1px solid var(--line)}.sec h3{font-size:.85rem;color:var(--btxt)}.msgok{font-size:.8rem;color:var(--mut)}
+.ck{display:flex;align-items:center;gap:6px;font-weight:500;font-size:.88rem}.ck input{width:auto}.cks{display:flex;flex-wrap:wrap;gap:6px 14px}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:8px}legend{font-size:.78rem;font-weight:600;padding:0 4px}
+.cpv{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);background:#e9ecf3}
+@media(min-width:600px){.modal{align-items:center}.sheet{border-radius:18px}.item{grid-template-columns:56px 1fr auto}.acts{grid-column:auto}.tools{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}
+@media(max-width:800px){.emb header{padding-left:58px}}textarea{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font:inherit;font-size:1rem;resize:vertical}
+.res{background:var(--g1);color:#fff;border-radius:14px;padding:14px;display:grid;gap:8px}.res .big{font-size:1.9rem;font-weight:700;line-height:1.1}
+.rw{display:flex;justify-content:space-between;gap:10px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.2);padding-top:6px}
+.warn{background:#fff3cd;color:#5a3a00;border-radius:10px;padding:8px 10px;font-size:.85rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px;margin-bottom:12px}
+.chips{display:flex;gap:8px;margin-bottom:12px}.chip{border:1px solid var(--line);background:var(--card);color:var(--btxt);border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer}.chip.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+table{border-collapse:collapse;width:100%;font-size:.78rem}th,td{padding:5px 6px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}.tw{max-height:320px;overflow:auto}
+.hint{font-size:.78rem;color:var(--mut)}</style></head><body><header><div class="hl"><img class="logoimg" src="icon-192.png" alt="Logo"><h1><span class="hd">Caisse Populaire </span><b>SUCCES</b></h1></div><div class="hr"></div></header><main>
+<div class="chips"><button class="chip on" id="tc">💳 Crédit</button><button class="chip" id="te">🐖 Épargne</button></div>
+<section id="pc"><div class="card">
+  <label>Type de crédit<select id="cp"></select></label>
+  <label>Montant (G)<input id="cm" type="number" inputmode="numeric" min="0" step="1000"></label><div class="hint" id="ch"></div>
+  <div class="g2"><label>Durée (mois)<input id="cd" type="number" inputmode="numeric" min="1" step="1"></label>
+  <label>Taux annuel (%)<input id="ct" type="number" inputmode="decimal" min="0" step="0.1" placeholder="à renseigner"></label></div>
+  <div class="hint">Le taux n’est pas publié sur le site : saisissez-le (il est mémorisé pour ce type de crédit).</div>
+</div><div id="cr"></div></section>
+<section id="pe" hidden><div class="card">
+  <label>Type d’épargne<select id="ep"></select></label><div class="hint" id="eh"></div>
+  <div id="gn" style="display:grid;gap:12px"><div class="g2"><label>Capital initial (G)<input id="ec" type="number" inputmode="numeric" min="0" value="0"></label>
+  <label>Versement mensuel (G)<input id="em" type="number" inputmode="numeric" min="0" value="0"></label></div>
+  <div class="g2"><label>Durée (années)<input id="ey" type="number" inputmode="decimal" min="0.25" step="0.25" value="1"></label>
+  <label>Taux annuel (%)<input id="er" type="number" inputmode="decimal" min="0" step="0.1" value="0"></label></div></div>
+  <div id="bo" style="display:none;gap:12px"><div class="g2"><label>Formule<select id="bf"><option value="24">1 an (24 versements)</option><option value="12">6 mois (12 versements)</option></select></label>
+  <label>Versement tous les 15 jours (G)<input id="bv" type="number" inputmode="numeric" min="250" step="50" value="250"></label></div></div>
+</div><div id="er2"></div></section>
+<p class="hint">Simulation indicative, non contractuelle. Les conditions et taux applicables sont confirmés par la Caisse.</p>
+</main><script>
+const $=id=>document.getElementById(id);
+const G=n=>Math.round(n).toLocaleString('fr-FR')+' G',P2=n=>(Math.round(n*100)/100).toLocaleString('fr-FR',{maximumFractionDigits:2})+' %';
+const CR=[['Prêt à la consommation',5000,2000000,36],['Prêts aux employés / chèque de l’État',5000,1000000,48],['Prêts aux employés du secteur privé',5000,500000,36],['Crédit biznis (activités commerciales et de services)',5000,6000000,48],['Prêt garanti à 100 %',5000,6000000,36],['Crédit habitation',5000,200000,36],['Crédit écolage (fondamental-secondaire)',5000,150000,10],['Crédit universitaire / professionnel',5000,200000,12],['Crédit ti machan’n 1',10000,75000,8],['Crédit ti machan’n 2',75001,150000,9],['Prêt au logement (achat / construction)',50000,6000000,84],['Crédit entrepreneur',100000,1000000,30],['Crédit énergie',15000,700000,36]];
+const EP=[['Épargne à vue',0,'Aucun intérêt. Ouverture : 375 G minimum (250 capital social + 75 droit d’entrée + 50 dépôt).'],['Épargne bloquée (garantie)',0,'Taux selon la politique de crédit.'],['Épargne boni',0,'Versements tous les 15 jours : 1 an = 24 versements + 1 versement gratuit ; 6 mois = 12 versements + ½ versement gratuit.'],['Épargne spécialisée',4,'4 % par an, intérêts calculés chaque jour et versés chaque mois. Solde minimum 5 000 G.'],['Épargne à terme',0,'Taux fixe selon la durée (minimum 3 mois) : à renseigner.'],['Épargne retraite',0,'Versement mensuel fixe, minimum 500 G.']];
+$('cp').innerHTML=CR.map((c,i)=>`<option value="${i}">${c[0]}</option>`).join('');
+$('ep').innerHTML=EP.map((c,i)=>`<option value="${i}">${c[0]}${c[1]?' ('+c[1]+' %)':''}</option>`).join('');
+let SUM='';
+const store={get(k){try{return localStorage.getItem(k)||''}catch(e){return ''}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+function cpSel(){const c=CR[$('cp').value];$('cm').value=c[1];$('cd').value=c[3];$('ct').value=store.get('sim_r'+$('cp').value);$('ch').textContent='Montant : '+G(c[1])+' à '+G(c[2])+' · durée maximale : '+c[3]+' mois';rc()}
+function rc(){
+  const c=CR[$('cp').value],P=+$('cm').value,n=Math.round(+$('cd').value),t=$('ct').value;store.set('sim_r'+$('cp').value,t);
+  const w=[];if(P&&(P<c[1]||P>c[2]))w.push('Montant hors limites pour ce produit ('+G(c[1])+' à '+G(c[2])+').');if(n>c[3])w.push('Durée supérieure au maximum ('+c[3]+' mois).');
+  if(!(P>0)||!(n>0)||t===''){$('cr').innerHTML=(t===''?'<div class="warn">Renseignez le taux annuel pour calculer la mensualité.</div>':'')+w.map(x=>'<div class="warn">'+x+'</div>').join('');return}
+  const a=+t,r=a/1200,m=r?P*r/(1-Math.pow(1+r,-n)):P/n,tot=m*n,eff=(Math.pow(1+r,12)-1)*100;
+  let b=P,rows='';for(let i=1;i<=n;i++){const it=b*r,cp=m-it;b=Math.max(0,b-cp);rows+=`<tr><td>${i}</td><td>${G(m)}</td><td>${G(it)}</td><td>${G(cp)}</td><td>${G(b)}</td></tr>`}
+  SUM=`Simulation de crédit – Caisse Populaire SUCCES\n${c[0]}\nMontant : ${G(P)} · Durée : ${n} mois · Taux : ${P2(a)}\nMensualité : ${G(m)}\nTotal à rembourser : ${G(tot)}\nCoût du crédit (intérêts) : ${G(tot-P)}\n(Simulation indicative)`;
+  $('cr').innerHTML=w.map(x=>'<div class="warn">'+x+'</div>').join('')+`<div class="res"><span>Mensualité</span><div class="big">${G(m)}</div><div class="rw"><span>Total à rembourser</span><b>${G(tot)}</b></div><div class="rw"><span>Coût du crédit (intérêts)</span><b>${G(tot-P)}</b></div><div class="rw"><span>Taux effectif annuel estimé</span><b>${P2(eff)}</b></div><button class="btn alt sm" data-copy>Copier le résumé</button></div><details class="card" style="margin-top:12px"><summary>Échéancier (${n} mois)</summary><div class="tw"><table><tr><th>Mois</th><th>Mensualité</th><th>Intérêts</th><th>Capital</th><th>Solde</th></tr>${rows}</table></div></details>`;
+}
+function epSel(){const i=+$('ep').value,e=EP[i];$('er').value=e[1];$('eh').textContent=e[2];$('gn').style.display=i===2?'none':'grid';$('bo').style.display=i===2?'grid':'none';re()}
+function re(){
+  const i=+$('ep').value,w=[];let h='';
+  if(i===2){
+    const k=+$('bf').value,v=+$('bv').value;if(v<250)w.push('Le versement minimum est de 250 G.');
+    const dep=v*k,bonus=k===24?v:v/2;SUM=`Simulation Épargne boni – Caisse Populaire SUCCES\n${k} versements de ${G(v)}\nTotal versé : ${G(dep)} · Bonus : ${G(bonus)}\nTotal à l’échéance : ${G(dep+bonus)}\n(Simulation indicative)`;
+    h=`<div class="res"><span>Total à l’échéance</span><div class="big">${G(dep+bonus)}</div><div class="rw"><span>Total des versements (${k})</span><b>${G(dep)}</b></div><div class="rw"><span>Versement gratuit (bonus)</span><b>${G(bonus)}</b></div><button class="btn alt sm" data-copy>Copier le résumé</button></div>`;
+  }else{
+    const C=+$('ec').value||0,M=+$('em').value||0,y=+$('ey').value||0,a=+$('er').value||0,n=Math.round(y*12),r=a/1200;
+    if(i===3&&C<5000)w.push('Sous 5 000 G de solde, l’épargne spécialisée n’est pas rémunérée.');
+    if(i===5&&M<500)w.push('Le versement mensuel minimum est de 500 G.');if(i===4&&n<3)w.push('Durée minimale : 3 mois.');
+    if(!(n>0)){$('er2').innerHTML='';return}
+    const f=r?C*Math.pow(1+r,n)+M*((Math.pow(1+r,n)-1)/r):C+M*n,dep=C+M*n,eff=(Math.pow(1+r,12)-1)*100;
+    SUM=`Simulation d’épargne – Caisse Populaire SUCCES\n${EP[i][0]}\nCapital initial : ${G(C)} · Versement mensuel : ${G(M)} · Durée : ${y} an(s) · Taux : ${P2(a)}\nTotal des versements : ${G(dep)}\nIntérêts gagnés : ${G(f-dep)}\nSolde final estimé : ${G(f)}\n(Simulation indicative)`;
+    h=`<div class="res"><span>Solde final estimé</span><div class="big">${G(f)}</div><div class="rw"><span>Capital initial</span><b>${G(C)}</b></div><div class="rw"><span>Total des versements</span><b>${G(M*n)}</b></div><div class="rw"><span>Intérêts gagnés</span><b>${G(f-dep)}</b></div><div class="rw"><span>Taux annuel / effectif</span><b>${P2(a)} / ${P2(eff)}</b></div><button class="btn alt sm" data-copy>Copier le résumé</button></div>`;
+  }
+  $('er2').innerHTML=w.map(x=>'<div class="warn">'+x+'</div>').join('')+h;
+}
+document.addEventListener('click',e=>{if(e.target.closest('[data-copy]'))navigator.clipboard.writeText(SUM).then(()=>alert('Résumé copié.')).catch(()=>prompt('Copiez le résumé :',SUM))});
+$('cp').onchange=cpSel;['cm','cd','ct'].forEach(k=>$(k).oninput=rc);
+$('ep').onchange=epSel;['ec','em','ey','er','bf','bv'].forEach(k=>$(k).oninput=re);
+const tab=n=>{$('pc').hidden=n;$('pe').hidden=!n;$('tc').classList.toggle('on',!n);$('te').classList.toggle('on',!!n)};
+$('tc').onclick=()=>tab(0);$('te').onclick=()=>tab(1);
+cpSel();epSel();
+</script><script>try{document.body.classList.toggle("dark",localStorage.getItem("succes_dark")==="1")}catch(e){}</script></body></html>
