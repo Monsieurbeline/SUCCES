@@ -69,7 +69,8 @@ const rd=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}ca
 const wr=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const cfg=()=>rd('succes_sync',{});
 const hs=s=>{let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return(h>>>0).toString(36)+s.length};
-const COL=[{n:'certificats',k:'cs_reg'},{n:'communiques',k:'cm_list'},{n:'anniversaires',k:'succes_fetes'},{n:'reglages',k:'cs_set',one:1}];
+const COL=[{n:'certificats',k:'cs_reg'},{n:'communiques',k:'cm_list'},{n:'anniversaires',k:'succes_fetes'},{n:'reglages',k:'cs_set',one:1},{n:'recrutement', k:'rc_list'}
+];
 const AUTO=location.hash==='#auto';
 const log=t=>{if(!AUTO){$('log').textContent+=t+'\n';$('log').scrollTop=1e9}};
 async function api(action,body){
