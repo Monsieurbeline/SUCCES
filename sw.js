@@ -1,5 +1,5 @@
-const V = 'succes-v9';   // changez ce numéro à chaque mise à jour de l'application pour forcer le rafraîchissement
-const SHELL = ['./', './index.html', './anniversaires.html', './certificats.html', './communiques.html', './simulateurs.html', './verification.html', './sync.html', './config.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
+const V = 'succes-v10';   // changez ce numéro à chaque mise à jour de l'application pour forcer le rafraîchissement
+const SHELL = ['./', './index.html', './anniversaires.html', './certificats.html', './communiques.html', './simulateurs.html', './recrutement.html', './verification.html', './sync.html', './config.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
