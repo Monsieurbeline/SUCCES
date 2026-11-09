@@ -53,6 +53,18 @@ main{position:relative}
 #inst .go{padding:10px 14px;white-space:nowrap}#inst .x{border:0;background:transparent;font-size:1.2rem;cursor:pointer;color:#5f7355;padding:4px 6px}
 #ios{position:fixed;inset:0;z-index:60;background:rgba(10,25,5,.6);display:grid;place-items:center;padding:16px}
 #ios div{background:#fff;border-radius:16px;padding:18px;max-width:380px;display:grid;gap:10px;font-size:.92rem}
+#dv{display:flex;align-items:center;gap:10px;width:100%;margin-top:8px;padding:10px;border:0;border-top:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font:inherit;text-align:left;cursor:pointer;border-radius:10px}
+#dv:hover{background:rgba(255,255,255,.1)}
+.dav{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #f0c919;flex:none}
+#dv b{display:block;font-size:.85rem;font-weight:600;line-height:1.2}#dv span{display:block;font-size:.7rem;opacity:.8}
+.cp{font-size:.68rem;opacity:.65;text-align:center;padding:4px 0 2px}
+#dlg{position:fixed;inset:0;z-index:70;background:rgba(10,25,5,.6);display:grid;place-items:center;padding:16px}
+#dlg .bx{background:#fff;border-radius:18px;padding:22px 20px 18px;width:min(380px,100%);display:grid;gap:12px;text-align:center;font-size:.9rem;line-height:1.45;color:#1f3a14;position:relative;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+#dlg .big{width:112px;height:112px;border-radius:50%;object-fit:cover;margin:0 auto;border:3px solid #f0c919;background:#eef3ea}
+#dlg h2{font-size:1.15rem;line-height:1.2}#dlg .rl{color:#2d7d1f;font-weight:600;font-size:.85rem}#dlg p{color:#5f7355}
+#dlg .wa{display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;border-radius:10px;padding:12px;font-weight:600;font-size:1rem}
+#dlg .cl{border:1px solid #b9c9ae;background:#fff;color:#1b5e20;border-radius:10px;padding:10px;font:600 .9rem Poppins,sans-serif;cursor:pointer}
+#dlg small{color:#5f7355;font-size:.72rem}
 @media(prefers-reduced-motion:reduce){#splash img,.spin{animation:none}}
 </style>
 </head>
@@ -61,7 +73,7 @@ main{position:relative}
 <section id="login">
   <form class="lbox" id="lf">
     <img src="icon-192.png" alt="Logo Caisse Populaire SUCCES">
-    <h1>Caisse Populaire <b>SUCCES</b></h1><p>Outils Internes</p>
+    <h1>Caisse Populaire <b>SUCCES</b></h1><p>Anniversaires, certificats, communiqués et simulateurs</p>
     <label>Utilisateur<input id="lu" autocomplete="username" required></label>
     <label>Mot de passe<input id="lp" type="password" autocomplete="current-password" required></label>
     <div id="le" role="alert"></div>
@@ -75,6 +87,8 @@ main{position:relative}
     <div class="sp"></div>
     <button class="nav" id="bi" hidden><i>📲</i>Installer l’application</button>
     <button class="nav out" id="lo"><i>⎋</i>Se déconnecter</button>
+    <button id="dv" aria-haspopup="dialog"><img class="dav" src="dev.png" alt=""><div><b>Tegaud Beline</b><span>Assistance technique</span></div></button>
+    <div class="cp">© 2026 Monsieur Beline</div>
   </aside>
   <div class="scrim" id="sc"></div>
   <main>
@@ -84,6 +98,15 @@ main{position:relative}
   </main>
 </div>
 <div id="inst" hidden role="dialog" aria-label="Installer l’application"><img src="icon-192.png" alt=""><p><b>Installer l’application SUCCES</b>Accès direct depuis votre écran d’accueil, même avec une connexion instable.</p><button class="go" id="ib">Installer</button><button class="x" id="ix" aria-label="Plus tard">✕</button></div>
+<div id="dlg" hidden role="dialog" aria-modal="true" aria-labelledby="dlt"><div class="bx">
+  <img class="big" src="dev.png" alt="Tegaud Beline">
+  <div><h2 id="dlt">Tegaud Beline</h2><div class="rl">Développeur freelance</div></div>
+  <p>Ce système a été conçu et développé par <b>Tegaud Beline</b>, développeur freelance, actuellement responsable de la communication digitale de la Caisse Populaire SUCCES.</p>
+  <p>Pour toute assistance technique, appuyez sur le bouton ci-dessous.</p>
+  <a class="wa" id="wa" href="#" target="_blank" rel="noopener">💬 Contacter sur WhatsApp</a>
+  <button class="cl" id="dlc">Fermer</button>
+  <small>© 2026 Monsieur Beline · Tous droits réservés</small>
+</div></div>
 <div id="ios" hidden><div><b>Installer sur iPhone / iPad</b><span>1. Touchez le bouton <b>Partager</b> ⬆️ de Safari.<br>2. Choisissez <b>« Sur l’écran d’accueil »</b>.<br>3. Touchez <b>Ajouter</b>.</span><button class="go" id="ioc">Compris</button></div></div>
 <script>
 const $ = id => document.getElementById(id);
@@ -93,6 +116,7 @@ const TOOLS = [
   {id: 'certificats', label: 'Certificats de stage', ico: '📜', src: 'certificats.html'},
   {id: 'communiques', label: 'Communiqués', ico: '📢', src: 'communiques.html'},
   {id: 'recrutement', label: 'Recrutement', ico: '💼', src: 'recrutement.html'},
+  {id: 'pointage', label: 'Pointage', ico: '⏱️', src: 'pointage.html'},
   {id: 'simulateurs', label: 'Simulateurs', ico: '🧮', src: 'simulateurs.html'},
   {id: 'verification', label: 'Vérifier un certificat', ico: '🔍', src: 'verification.html'},
   {id: 'synchro', label: 'Synchronisation', ico: '🔄', src: 'sync.html'}
@@ -145,6 +169,17 @@ async function doInstall() {
 $('ib').onclick = $('bi').onclick = doInstall;
 $('ix').onclick = () => { $('inst').hidden = true; try { localStorage.setItem('succes_inst_x', String(Date.now())); } catch (e) {} };
 $('ioc').onclick = () => { $('ios').hidden = true; };
+// Assistance technique (développeur)
+const WA = '50941657026';
+$('dv').onclick = () => {
+  const outil = $('tt').textContent;
+  const msg = 'Bonjour Monsieur Beline, j’ai besoin d’une assistance technique sur les Outils SUCCES' + (outil ? ' (page : ' + outil + ')' : '') + '.';
+  $('wa').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+  $('dlg').hidden = false;
+};
+$('dlc').onclick = () => { $('dlg').hidden = true; };
+$('dlg').onclick = e => { if (e.target === $('dlg')) $('dlg').hidden = true; };
+addEventListener('keydown', e => { if (e.key === 'Escape') $('dlg').hidden = true; });
 if (isIOS && !isStd()) setTimeout(showInst, 2500);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>
