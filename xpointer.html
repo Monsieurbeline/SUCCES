@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1b5e20">
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('emb')}catch(e){}</script>
+<link rel="icon" href="icon-192.png"><title>Pointage – SUCCES</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+:root{--g1:#1b5e20;--g2:#2d7d1f;--g3:#7dba48;--bg:#eef3ea;--ink:#1f3a14;--mut:#5f7355;--line:#d3dfca;--gold:#f0c919;--red:#b3261e;--card:#fff;--btxt:#1b5e20}
+body.dark{--bg:#11160e;--ink:#e4eede;--mut:#9db291;--line:#2d3b27;--card:#1b2317;--btxt:#a9e08a}body.dark input,body.dark select{border-color:#44563b}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+button,input,select{font:inherit;color:inherit}
+input,select{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font-size:1rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;background:var(--g2);color:#fff;font-size:.9rem;white-space:nowrap}
+.btn.alt{background:var(--card);color:var(--btxt);border:1px solid var(--line)}.btn.del{background:var(--card);color:var(--red);border:1px solid #efc9c6}
+.btn.sm{padding:7px 10px;font-size:.8rem}.btn:disabled{opacity:.6}
+label{display:grid;gap:4px;font-size:.8rem;font-weight:600}
+header{background:var(--g1);color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:5}
+header h1{font-size:1rem;line-height:1.15}header h1 b{font-weight:800;display:block;font-size:1.15rem}
+.hl{display:flex;align-items:center;gap:10px;min-width:0}.hr{display:flex;gap:8px}
+.logoimg{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;flex:none}.bell{padding:7px 11px;font-size:1.1rem}
+@media(max-width:479px){.hd{display:none}}
+main{max-width:900px;margin:0 auto;padding:14px 12px 90px}
+.tools{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:12px}.tools .s{grid-column:1/-1}
+.stats{font-size:.8rem;color:var(--mut);margin-bottom:12px}
+.list{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;grid-template-columns:56px 1fr;gap:10px 12px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;background:var(--g2);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem;text-transform:uppercase}
+.nm{font-weight:600;line-height:1.2}.nm small{display:block;font-weight:400;color:var(--mut);font-size:.8rem;margin-top:2px}
+.dt{font-size:.8rem;color:var(--mut);margin-top:3px}
+.badge{display:inline-block;background:var(--gold);color:#5a3a00;border-radius:99px;padding:1px 8px;font-size:.7rem;font-weight:600;margin-left:6px}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:var(--mut);padding:30px 10px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:6;box-shadow:0 6px 18px rgba(0,0,0,.25);padding:14px 18px;border-radius:99px}
+.modal{position:fixed;inset:0;background:rgba(10,25,5,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center;overflow:auto}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:18px 18px 0 0;padding:16px;display:grid;gap:12px;max-height:100vh;overflow:auto}
+.sheet{grid-auto-rows:max-content;align-content:start}.sheet h2{font-size:1.1rem}.g2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.bar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.sec{display:grid;gap:8px;padding-top:10px;border-top:1px solid var(--line)}.sec h3{font-size:.85rem;color:var(--btxt)}.msgok{font-size:.8rem;color:var(--mut)}
+.ck{display:flex;align-items:center;gap:6px;font-weight:500;font-size:.88rem}.ck input{width:auto}.cks{display:flex;flex-wrap:wrap;gap:6px 14px}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:8px}legend{font-size:.78rem;font-weight:600;padding:0 4px}
+.cpv{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);background:#e9ecf3}
+@media(min-width:600px){.modal{align-items:center}.sheet{border-radius:18px}.item{grid-template-columns:56px 1fr auto}.acts{grid-column:auto}.tools{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}.hint{font-size:.78rem;color:var(--mut)}
+.chips{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:var(--card);color:var(--btxt);border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer}.chip.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+table{border-collapse:collapse;width:100%;font-size:.8rem}th,td{padding:6px;text-align:left;border-bottom:1px solid var(--line)}.tw{overflow:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.abtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;border:0;font:700 1.1rem Poppins,sans-serif;cursor:pointer;color:#fff;background:var(--g2)}
+.abtn:disabled{opacity:.45;cursor:not-allowed}.abtn.a-départ{background:#b3261e}.abtn.a-pause,.abtn.a-reprise{background:#8a6d00}.abtn.a-sortie,.abtn.a-retour{background:#1d5e8a}
+.who{display:flex;align-items:center;gap:10px;font-weight:600}.who small{display:block;font-weight:400;color:var(--mut)}
+.opts{display:grid;gap:10px}.qrh{font-size:.82rem;background:#fff3cd;color:#5a3a00;border-radius:10px;padding:8px 10px}
+</style></head><body><header><div class="hl"><img class="logoimg" src="icon-192.png" alt="Logo"><h1><span class="hd">Caisse Populaire </span><b>SUCCES</b></h1></div><div class="hr"></div></header><main><div class="card" style="background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px">
+<h2 style="font-size:1.15rem">⏱️ Pointage</h2>
+<div id="idf" style="display:grid;gap:12px">
+<label>Code agent<input id="ag" autocomplete="username" autocapitalize="characters" placeholder="A001"></label>
+<label>PIN<input id="pin" type="password" inputmode="numeric" autocomplete="current-password"></label>
+<button class="btn" id="go">Continuer</button></div>
+<div id="who" hidden></div>
+<div class="opts" id="opts" hidden></div>
+<div id="res" aria-live="polite"></div>
+<button class="btn alt" id="end" hidden>Terminer</button>
+<p class="hint">Votre position n’est lue qu’au moment du pointage, uniquement pour vérifier que vous êtes sur place.</p>
+</div></main>
+<script src="config.js"></script><script>
+const $=id=>document.getElementById(id);
+const q=new URLSearchParams(location.search),API=(typeof SUCCES_API!=='undefined'&&SUCCES_API)||'';
+const HASQR=!!(q.get('s')&&q.get('k')&&q.get('t'));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const box=(k,h,t)=>{const c={ok:['#e3f4dc','#14440f'],warn:['#fff3cd','#5a3a00'],info:['#e1eefa','#123c5a'],err:['#fde8e6','#8a1c14']}[k];return `<div style="border-radius:12px;padding:14px;background:${c[0]};color:${c[1]}"><div style="font-size:1.15rem;font-weight:700">${h}</div><div style="font-size:.9rem;margin-top:4px">${t}</div></div>`};
+const ICO={'arrivée':'🟢','pause':'☕','reprise':'▶️','sortie':'🚶','retour':'↩️','départ':'🔴'};
+const MOTIFS=['Visite client','Banque','Recouvrement','Dépôt / courrier','Autre'];
+let idle=null,busy=false,LAST=null;
+try{$('ag').value=localStorage.getItem('pt_agent')||''}catch(e){}
+if(!API){$('res').innerHTML=box('err','Application non configurée','L’adresse du service Google n’est pas renseignée (fichier config.js).');$('go').disabled=true}
+else if(!HASQR)$('res').innerHTML=box('info','Pointage sans QR','Pour l’arrivée, le départ et les sorties, scannez d’abord le QR code affiché au comptoir.');
+async function post(action,body){
+  const r=await fetch(API,{method:'POST',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({action,agent:$('ag').value.trim(),pin:$('pin').value.trim()},body||{}))});
+  return r.json();
+}
+const pos=()=>new Promise(r=>{if(!navigator.geolocation)return r(null);navigator.geolocation.getCurrentPosition(p=>r({lat:p.coords.latitude,lng:p.coords.longitude,acc:p.coords.accuracy}),()=>r(null),{enableHighAccuracy:true,timeout:15000,maximumAge:0})});
+function reset(){$('pin').value='';$('idf').hidden=false;$('who').hidden=$('opts').hidden=$('end').hidden=true;$('opts').innerHTML='';clearTimeout(idle)}
+function arm(){clearTimeout(idle);idle=setTimeout(()=>{reset();$('res').innerHTML=box('info','Session fermée','Par sécurité, saisissez à nouveau votre PIN.')},120000)}
+function draw(j){
+  LAST=j;
+  $('idf').hidden=true;$('who').hidden=false;$('end').hidden=false;
+  $('who').innerHTML=`<div class="who"><div class="av">${esc((j.nom||'?')[0])}</div><div>${esc(j.nom)}<small>${j.profil==='terrain'?'Agent de terrain':'Agent de bureau'}${j.last?' · dernier pointage : '+esc(j.last.label)+' à '+esc(j.last.heure):' · aucun pointage aujourd’hui'}</small></div></div>`;
+  const a=j.actions||[];let h='';
+  if(a.some(x=>x.type==='sortie'))h+=`<label>Motif de la sortie (facultatif)<select id="motif"><option value="">—</option>${MOTIFS.map(m=>`<option>${m}</option>`).join('')}</select></label>`;
+  h+=a.map(x=>{const no=x.qr&&!HASQR;return `<button class="abtn a-${x.type}" data-t="${x.type}" ${no?'disabled':''}>${ICO[x.type]||''} ${esc(x.label)}</button>${no?'<div class="qrh">Scannez le QR du comptoir pour cette action.</div>':''}`}).join('')||'<p class="hint">Aucune action disponible.</p>';
+  $('opts').innerHTML=h;$('opts').hidden=false;arm();
+}
+$('go').onclick=async()=>{
+  if(!$('ag').value.trim()||!$('pin').value.trim()){$('res').innerHTML=box('err','Champs manquants','Saisissez votre code agent et votre PIN.');return}
+  $('go').disabled=true;$('res').innerHTML='<p class="hint">Vérification…</p>';
+  try{const j=await post('etat');if(!j.ok)$('res').innerHTML=box('err','Accès refusé',esc(j.err||'Erreur'));else{try{localStorage.setItem('pt_agent',$('ag').value.trim())}catch(e){}$('res').innerHTML='';draw(j)}}
+  catch(e){$('res').innerHTML=box('err','Connexion impossible','Vérifiez votre connexion internet et réessayez.')}
+  $('go').disabled=false;
+};
+$('opts').onclick=async ev=>{
+  const b=ev.target.closest('.abtn');if(!b||busy)return;busy=true;
+  const all=[...document.querySelectorAll('.abtn')];all.forEach(x=>x.disabled=true);
+  $('res').innerHTML='<p class="hint">Localisation en cours…</p>';
+  const p=await pos();$('res').innerHTML='<p class="hint">Envoi…</p>';
+  try{
+    const j=await post('pointer',{type:b.dataset.t,s:q.get('s'),k:q.get('k'),t:q.get('t'),lat:p?p.lat:null,lng:p?p.lng:null,acc:p?p.acc:null,motif:($('motif')||{}).value||''});
+    if(!j.ok){$('res').innerHTML=box('err','Pointage refusé',esc(j.err||'Erreur'));draw(LAST);}
+    else{
+      const zt=j.zone==='oui'?'Position vérifiée ✔':j.zone==='non'?'⚠ Vous semblez hors de la zone ('+j.dist+' m). Enregistré pour contrôle.':'Position non vérifiée : enregistré pour contrôle.';
+      const st=j.statut||{};
+      $('res').innerHTML=box(st.niv==='warn'?'warn':st.niv==='info'?'info':'ok','✅ '+esc(j.label)+' à '+esc(j.heure),'Bonjour '+esc(j.nom)+(j.site?' · '+esc(j.site):'')+'<br><b>'+esc(st.txt||'')+'</b><br>'+zt);
+      draw(j);
+    }
+  }catch(e){$('res').innerHTML=box('err','Connexion impossible','Vérifiez votre connexion internet. Si le pointage n’apparaît pas, réessayez avec le QR code actuel.');draw(LAST)}
+  busy=false;
+};
+$('end').onclick=()=>{reset();$('res').innerHTML=''};
+</script><script>try{document.body.classList.toggle("dark",localStorage.getItem("succes_dark")==="1")}catch(e){}</script></body></html>
