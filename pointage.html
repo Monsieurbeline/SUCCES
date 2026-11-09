@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1b5e20">
+<script>try{if(!sessionStorage.getItem('succes_ok'))location.replace('index.html');if(window.self!==window.top)document.documentElement.classList.add('emb')}catch(e){}</script>
+<link rel="icon" href="icon-192.png"><title>Pointage – SUCCES (administration)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+:root{--g1:#1b5e20;--g2:#2d7d1f;--g3:#7dba48;--bg:#eef3ea;--ink:#1f3a14;--mut:#5f7355;--line:#d3dfca;--gold:#f0c919;--red:#b3261e;--card:#fff;--btxt:#1b5e20}
+body.dark{--bg:#11160e;--ink:#e4eede;--mut:#9db291;--line:#2d3b27;--card:#1b2317;--btxt:#a9e08a}body.dark input,body.dark select{border-color:#44563b}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+button,input,select{font:inherit;color:inherit}
+input,select{width:100%;padding:11px 12px;border:1px solid #b9c9ae;border-radius:10px;background:var(--card);font-size:1rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;background:var(--g2);color:#fff;font-size:.9rem;white-space:nowrap}
+.btn.alt{background:var(--card);color:var(--btxt);border:1px solid var(--line)}.btn.del{background:var(--card);color:var(--red);border:1px solid #efc9c6}
+.btn.sm{padding:7px 10px;font-size:.8rem}.btn:disabled{opacity:.6}
+label{display:grid;gap:4px;font-size:.8rem;font-weight:600}
+header{background:var(--g1);color:#fff;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:5}
+header h1{font-size:1rem;line-height:1.15}header h1 b{font-weight:800;display:block;font-size:1.15rem}
+.hl{display:flex;align-items:center;gap:10px;min-width:0}.hr{display:flex;gap:8px}
+.logoimg{width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;flex:none}.bell{padding:7px 11px;font-size:1.1rem}
+@media(max-width:479px){.hd{display:none}}
+main{max-width:900px;margin:0 auto;padding:14px 12px 90px}
+.tools{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:12px}.tools .s{grid-column:1/-1}
+.stats{font-size:.8rem;color:var(--mut);margin-bottom:12px}
+.list{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;grid-template-columns:56px 1fr;gap:10px 12px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;background:var(--g2);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem;text-transform:uppercase}
+.nm{font-weight:600;line-height:1.2}.nm small{display:block;font-weight:400;color:var(--mut);font-size:.8rem;margin-top:2px}
+.dt{font-size:.8rem;color:var(--mut);margin-top:3px}
+.badge{display:inline-block;background:var(--gold);color:#5a3a00;border-radius:99px;padding:1px 8px;font-size:.7rem;font-weight:600;margin-left:6px}
+.acts{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:var(--mut);padding:30px 10px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:6;box-shadow:0 6px 18px rgba(0,0,0,.25);padding:14px 18px;border-radius:99px}
+.modal{position:fixed;inset:0;background:rgba(10,25,5,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center;overflow:auto}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:18px 18px 0 0;padding:16px;display:grid;gap:12px;max-height:100vh;overflow:auto}
+.sheet{grid-auto-rows:max-content;align-content:start}.sheet h2{font-size:1.1rem}.g2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.bar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.sec{display:grid;gap:8px;padding-top:10px;border-top:1px solid var(--line)}.sec h3{font-size:.85rem;color:var(--btxt)}.msgok{font-size:.8rem;color:var(--mut)}
+.ck{display:flex;align-items:center;gap:6px;font-weight:500;font-size:.88rem}.ck input{width:auto}.cks{display:flex;flex-wrap:wrap;gap:6px 14px}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:8px}legend{font-size:.78rem;font-weight:600;padding:0 4px}
+.cpv{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);background:#e9ecf3}
+@media(min-width:600px){.modal{align-items:center}.sheet{border-radius:18px}.item{grid-template-columns:56px 1fr auto}.acts{grid-column:auto}.tools{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}
+@media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}.hint{font-size:.78rem;color:var(--mut)}
+.chips{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:var(--card);color:var(--btxt);border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer}.chip.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+table{border-collapse:collapse;width:100%;font-size:.8rem}th,td{padding:6px;text-align:left;border-bottom:1px solid var(--line)}.tw{overflow:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}</style></head><body><header><div class="hl"><img class="logoimg" src="icon-192.png" alt="Logo"><h1><span class="hd">Caisse Populaire </span><b>SUCCES</b></h1></div><div class="hr"></div></header><main>
+<div class="chips"><button class="chip on" data-p="pres">🕘 Présences</button><button class="chip" data-p="staff">👥 Personnel</button><button class="chip" data-p="sites">📍 Lieux</button><button class="chip" data-p="qr">🔳 Poste QR</button></div>
+<section id="s-pres"><div class="tools"><label>Du<input type="date" id="d1"></label><label>Au<input type="date" id="d2"></label>
+<input class="s" id="q" type="search" placeholder="Rechercher un agent…" aria-label="Rechercher"><select id="fsite" aria-label="Lieu"></select><button class="btn" id="load">Actualiser</button></div>
+<div class="stats" id="pc">Appuyez sur « Actualiser » pour charger les pointages.</div><div class="tw"><table id="pt"></table></div>
+<div class="bar" style="margin-top:10px"><button class="btn alt sm" id="pcsv">Exporter (CSV)</button></div></section>
+<section id="s-staff" hidden><div class="stats" id="sc"></div><div class="list" id="sl"></div></section>
+<section id="s-sites" hidden><div class="stats" id="tc"></div><div class="list" id="tl"></div></section>
+<section id="s-qr" hidden><div class="card"><label>Lieu<select id="qsite"></select></label>
+<div style="display:grid;justify-items:center;gap:10px"><img id="qimg" alt="QR code de pointage" style="width:min(80vw,380px);background:#fff;padding:10px;border-radius:12px;min-height:120px"><div class="stats" id="qcnt"></div></div>
+<div class="hint">Affichez cette page sur une tablette au comptoir. Le code change chaque minute : une photo envoyée à un collègue devient inutilisable.</div></div></section>
+<p class="hint" style="margin-top:12px">Les modifications du personnel et des lieux sont envoyées automatiquement vers Google (synchronisation).</p>
+</main>
+<button class="btn fab" id="add" hidden>+ Ajouter</button>
+<div class="modal" id="mstaff" hidden><div class="sheet"><h2 id="stitle">Agent</h2>
+<div class="g2"><label>Code agent<input id="scode" placeholder="A001" autocapitalize="characters"></label><label>PIN (4 à 8 chiffres)<input id="spin" inputmode="numeric" placeholder="laisser vide = inchangé"></label></div>
+<button type="button" class="btn alt sm" id="sgen">Générer un PIN</button>
+<div class="g2"><label>Nom<input id="snom"></label><label>Prénom<input id="spre"></label></div><label>Poste<input id="spos"></label>
+<div class="bar"><button class="btn alt" data-close>Annuler</button><button class="btn" id="sok">Enregistrer</button></div></div></div>
+<div class="modal" id="msite" hidden><div class="sheet"><h2 id="ttitle">Lieu</h2><label>Nom<input id="tnom"></label>
+<div class="g2"><label>Latitude<input id="tlat" inputmode="decimal"></label><label>Longitude<input id="tlng" inputmode="decimal"></label></div>
+<button type="button" class="btn alt sm" id="tgps">📍 Utiliser ma position actuelle</button><label>Rayon accepté (mètres)<input id="tray" type="number" min="20" value="120"></label>
+<div class="bar"><button class="btn alt" data-close>Annuler</button><button class="btn" id="tok">Enregistrer</button></div></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script><script>
+const $=id=>document.getElementById(id);
+const ST={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){alert('Stockage plein.')}}};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const dl=(b,n)=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(x=>x.toString(16).padStart(2,'0')).join('');
+async function api(action,body){
+  const c=ST.get('succes_sync',{});if(!c.url||!c.key)throw new Error('Configurez d’abord la synchronisation (menu 🔄).');
+  const r=await fetch(c.url,{method:'POST',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({key:c.key,action},body))});
+  const j=await r.json();if(!j.ok)throw new Error(j.err||'Erreur du script');return j}
+let staff=ST.get('pt_staff',[]),sites=ST.get('pt_sites',null),rows=[],cur=null,PAGE='pres';
+if(!sites){sites=[{id:'test',nom:'Test (position de l’administrateur)',lat:18.2316935,lng:-72.5336078,rayon:120},{id:'sg',nom:'Siège social',lat:'',lng:'',rayon:120},{id:'bd',nom:'Comptoir de Beaudouin',lat:'',lng:'',rayon:120},{id:'dk',nom:'Comptoir de Dekouze',lat:'',lng:'',rayon:120}];ST.set('pt_sites',sites)}
+let stmr;const pushSync=()=>{clearTimeout(stmr);stmr=setTimeout(()=>{if(!ST.get('succes_sync',{}).url)return;const f=document.createElement('iframe');f.src='sync.html#auto';f.style.display='none';f.title='synchro';document.body.appendChild(f);setTimeout(()=>f.remove(),90000)},800)};
+function show(p){PAGE=p;['pres','staff','sites','qr'].forEach(x=>{$('s-'+x).hidden=x!==p});document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b.dataset.p===p));$('add').hidden=!(p==='staff'||p==='sites');if(p==='qr')startQR();else clearTimeout(qt)}
+document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>show(b.dataset.p));
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>{b.closest('.modal').hidden=true});
+// ----- Présences -----
+function fillSites(){const o=sites.map(s=>`<option value="${esc(s.id)}">${esc(s.nom)}</option>`).join('');$('qsite').innerHTML=o;$('fsite').innerHTML='<option value="">Tous les lieux</option>'+sites.map(s=>`<option value="${esc(s.nom)}">${esc(s.nom)}</option>`).join('')}
+async function loadP(){$('pc').textContent='Chargement…';try{rows=(await api('pointages',{from:$('d1').value,to:$('d2').value})).rows;drawP()}catch(e){$('pc').textContent='✖ '+e.message}}
+function drawP(){const q=strip($('q').value),s=$('fsite').value,l=rows.filter(r=>(!s||r.site===s)&&strip(r.nom+' '+r.agent).includes(q));
+  $('pc').textContent=l.length+' pointage(s)';
+  $('pt').innerHTML='<tr><th>Date</th><th>Heure</th><th>Agent</th><th>Lieu</th><th>Type</th><th>Zone</th></tr>'+l.map(r=>`<tr><td>${esc(r.jour)}</td><td>${esc(r.heure)}</td><td>${esc(r.nom)}</td><td>${esc(r.site)}</td><td>${esc(r.type)}</td><td>${r.zone==='oui'?'✅':r.zone==='non'?'⚠ '+esc(r.distance)+' m':'❔'}</td></tr>`).join('');window.__rows=l}
+$('load').onclick=loadP;$('q').oninput=$('fsite').oninput=drawP;
+$('pcsv').onclick=()=>{const l=window.__rows||[],q=s=>'"'+String(s??'').replace(/"/g,'""')+'"';dl(new Blob(['\ufeff'+[['Date','Heure','Code','Agent','Lieu','Type','Distance (m)','Zone'],...l.map(r=>[r.jour,r.heure,r.agent,r.nom,r.site,r.type,r.distance,r.zone])].map(r=>r.map(q).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'}),'pointages-'+iso(new Date())+'.csv')};
+// ----- Personnel -----
+function drawStaff(){$('sc').textContent=staff.length+' agent(s)';
+  $('sl').innerHTML=staff.length?staff.slice().sort((a,b)=>strip(a.nom).localeCompare(strip(b.nom))).map(e=>`<div class="item"><div class="av">${esc((e.prenom||'')[0]||'')}${esc((e.nom||'')[0]||'')}</div><div><div class="nm">${esc(e.prenom||'')} ${esc(e.nom)}<span class="badge">${esc(e.code)}</span><small>${esc(e.poste||'')}</small></div></div><div class="acts"><button class="btn alt sm" data-o="${e.id}">Modifier</button><button class="btn del sm" data-d="${e.id}">Supprimer</button></div></div>`).join(''):'<div class="empty">Aucun agent.<br>Appuyez sur « + Ajouter ».</div>'}
+$('sl').onclick=ev=>{const b=ev.target.closest('button');if(!b)return;const e=staff.find(x=>x.id===(b.dataset.o||b.dataset.d));if(!e)return;
+  if(b.dataset.o)openStaff(e);else if(confirm('Supprimer '+e.nom+' ?')){staff=staff.filter(x=>x.id!==e.id);ST.set('pt_staff',staff);drawStaff();pushSync()}};
+function openStaff(e){cur=e?e.id:null;$('scode').value=e?e.code:'';$('snom').value=e?e.nom:'';$('spre').value=e?e.prenom||'':'';$('spos').value=e?e.poste||'':'';$('spin').value='';$('stitle').textContent=e?'Modifier l’agent':'Nouvel agent';$('mstaff').hidden=false}
+$('sgen').onclick=()=>{$('spin').value=String(1000+crypto.getRandomValues(new Uint32Array(1))[0]%9000)};
+$('sok').onclick=async()=>{
+  const code=$('scode').value.trim().toUpperCase(),nom=$('snom').value.trim().toUpperCase(),pre=$('spre').value.trim(),pos=$('spos').value.trim(),pin=$('spin').value.trim();
+  if(!code||!nom){alert('Le code agent et le nom sont obligatoires.');return}
+  if(staff.some(x=>x.code===code&&x.id!==cur)){alert('Ce code agent existe déjà.');return}
+  if(pin&&!/^\d{4,8}$/.test(pin)){alert('Le PIN doit contenir 4 à 8 chiffres.');return}
+  let e=staff.find(x=>x.id===cur);
+  if(!e&&!pin){alert('Définissez un PIN (bouton « Générer un PIN »).');return}
+  if(e&&e.code!==code&&!pin){alert('Le code agent a changé : définissez un nouveau PIN.');return}
+  if(!e){e={id:Date.now().toString(36)};staff.push(e)}
+  Object.assign(e,{code,nom,prenom:pre,poste:pos});
+  if(pin){e.ph=await sha(code.toLowerCase()+':'+pin);alert('PIN de '+code+' : '+pin+'\nÀ communiquer à l’agent : il ne pourra plus être affiché.')}
+  ST.set('pt_staff',staff);$('mstaff').hidden=true;drawStaff();pushSync()};
+// ----- Lieux -----
+function drawSites(){$('tc').textContent=sites.length+' lieu(x)';
+  $('tl').innerHTML=sites.map(s=>{const ok=s.lat!==''&&s.lat!=null&&s.lng!==''&&s.lng!=null;return `<div class="item"><div class="av">📍</div><div><div class="nm">${esc(s.nom)}<small>${ok?esc(Number(s.lat).toFixed(6))+' ; '+esc(Number(s.lng).toFixed(6))+' · rayon '+esc(s.rayon||120)+' m':'⚠ coordonnées à renseigner'}</small></div></div><div class="acts"><button class="btn alt sm" data-o="${esc(s.id)}">Modifier</button><button class="btn del sm" data-d="${esc(s.id)}">Supprimer</button></div></div>`}).join('')}
+$('tl').onclick=ev=>{const b=ev.target.closest('button');if(!b)return;const e=sites.find(x=>x.id===(b.dataset.o||b.dataset.d));if(!e)return;
+  if(b.dataset.o)openSite(e);else if(confirm('Supprimer le lieu « '+e.nom+' » ?')){sites=sites.filter(x=>x.id!==e.id);ST.set('pt_sites',sites);drawSites();fillSites();pushSync()}};
+function openSite(e){cur=e?e.id:null;$('tnom').value=e?e.nom:'';$('tlat').value=e?e.lat:'';$('tlng').value=e?e.lng:'';$('tray').value=e?e.rayon||120:120;$('ttitle').textContent=e?'Modifier le lieu':'Nouveau lieu';$('msite').hidden=false}
+$('tgps').onclick=()=>{if(!navigator.geolocation)return alert('Localisation indisponible.');$('tgps').textContent='Localisation…';navigator.geolocation.getCurrentPosition(p=>{$('tlat').value=p.coords.latitude.toFixed(7);$('tlng').value=p.coords.longitude.toFixed(7);$('tgps').textContent='📍 Position récupérée (±'+Math.round(p.coords.accuracy)+' m)'},()=>{$('tgps').textContent='📍 Utiliser ma position actuelle';alert('Autorisez la localisation pour récupérer votre position.')},{enableHighAccuracy:true,timeout:15000})};
+$('tok').onclick=()=>{
+  const nom=$('tnom').value.trim(),lat=$('tlat').value.trim().replace(',','.'),lng=$('tlng').value.trim().replace(',','.');
+  if(!nom){alert('Le nom est obligatoire.');return}
+  if((lat!==''||lng!=='')&&(!isFinite(+lat)||!isFinite(+lng)||lat===''||lng==='')){alert('Latitude et longitude doivent être des nombres.');return}
+  let e=sites.find(x=>x.id===cur);if(!e){e={id:Date.now().toString(36)};sites.push(e)}
+  Object.assign(e,{nom,lat:lat===''?'':+lat,lng:lng===''?'':+lng,rayon:+$('tray').value||120});
+  ST.set('pt_sites',sites);$('msite').hidden=true;drawSites();fillSites();pushSync()};
+$('add').onclick=()=>PAGE==='staff'?openStaff(null):openSite(null);
+// ----- Poste QR dynamique -----
+let qt=null,lastT=null,nextAt=0;
+async function tickQR(){
+  clearTimeout(qt);if(PAGE!=='qr')return;
+  try{const s=$('qsite').value,j=await api('qrtoken',{s});
+    if(j.t!==lastT||$('qimg').dataset.s!==s){lastT=j.t;$('qimg').dataset.s=s;const u=new URL('pointer.html',location.href);u.search=new URLSearchParams({s,k:j.k,t:j.t}).toString();const q=qrcode(0,'M');q.addData(u.href);q.make();$('qimg').src=q.createDataURL(8,4)}
+    const rem=60-Math.floor(j.now/1000)%60;nextAt=Date.now()+rem*1000;qt=setTimeout(tickQR,(rem+1)*1000)}
+  catch(e){$('qcnt').textContent='✖ '+e.message;qt=setTimeout(tickQR,10000)}}
+function startQR(){lastT=null;tickQR()}
+setInterval(()=>{if(PAGE==='qr'&&nextAt)$('qcnt').textContent='Prochain code dans '+Math.max(0,Math.round((nextAt-Date.now())/1000))+' s'},1000);
+$('qsite').onchange=startQR;
+$('d1').value=$('d2').value=iso(new Date());fillSites();drawStaff();drawSites();
+</script><script>try{document.body.classList.toggle("dark",localStorage.getItem("succes_dark")==="1")}catch(e){}</script></body></html>
