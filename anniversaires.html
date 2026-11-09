@@ -617,7 +617,7 @@ $('xzip').onclick = guard(async () => {
       z.file(fname(shown[i]), c.toDataURL('image/png').split(',')[1], {base64: true});
     }
     dlBlob(await z.generateAsync({type: 'blob'}), `cartes-${stamp()}.zip`); $('zipmsg').textContent = 'Terminé.';
-  } finally { box.remove(); } 
+  } finally { box.remove(); }
 });
 
 /* Import CSV / Excel */
