@@ -48,7 +48,7 @@ fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 10px;displa
 @media(min-width:600px){.modal{align-items:center}.sheet{border-radius:18px}.item{grid-template-columns:56px 1fr auto}.acts{grid-column:auto}.tools{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:800px){.emb header{padding-left:58px}.emb .sheet{max-height:calc(100vh - 60px)}}label input,label select,label textarea{font-weight:400}
 /* Certificat : dessiné sur le fond exact du modèle (1800×1350 px, format 4:3), mis à l’échelle par script */
-.cert{position:absolute;left:0;top:0;width:1800px;height:1350px;transform-origin:0 0;overflow:hidden;font-family:Tinos,'Times New Roman',serif;color:#2f4a2a}
+.cert{position:absolute;left:0;top:0;width:1800px;height:1350px;transform-origin:0 0;overflow:hidden;font-family:Tinos,'Times New Roman',serif;color:#2f4a2a;text-rendering:geometricPrecision;font-kerning:none;font-variant-ligatures:none;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-font-smoothing:antialiased}
 .cert .bg{position:absolute;left:0;top:0;width:1800px;height:1350px}
 .cert .ad{position:absolute;left:1085px;top:153px;white-space:nowrap;font:500 31px/30px 'Cormorant Garamond',Georgia,serif;font-variant-numeric:oldstyle-nums;color:#46623c}
 .cert .nm{position:absolute;left:0;right:0;top:480px;height:76px;line-height:76px;text-align:center;white-space:nowrap;font:400 64px/76px Marcellus,serif;color:#2f5a2a}
@@ -205,7 +205,10 @@ function save() {
   Object.assign(e, v); ST.set('cs_reg', reg); render(); drawReg(); return e;
 }
 async function cap(src = $('cert')) {
-  try { await document.fonts.ready; } catch (e) {}
+  try {
+    await Promise.all(['400 30px Tinos', '700 30px Tinos', '400 64px Marcellus', '400 20px Marcellus', '500 31px "Cormorant Garamond"'].map(f => document.fonts.load(f, 'AaÉéçà0123')));
+    await document.fonts.ready;
+  } catch (e) {}
   const el = src.cloneNode(true); el.removeAttribute('id'); el.style.cssText = 'transform:none;position:fixed;left:-9999px;top:0';
   document.body.appendChild(el);
   try { return await html2canvas(el, {scale: 1.5, backgroundColor: null}); } finally { el.remove(); }
