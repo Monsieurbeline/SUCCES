@@ -2,7 +2,7 @@
  "id": "./",
  "name": "Caisse Populaire SUCCES – Outils Internes",
  "short_name": "SUCCES",
- "description": "Anniversaires, certificats de stage, communiqués et simulateurs",
+ "description": "Anniversaires, certificats de stage, communiqués, recrutement, pointage et simulateurs de la Caisse Populaire SUCCES",
  "start_url": "./?source=pwa",
  "scope": "./",
  "display": "standalone",
@@ -75,6 +75,42 @@
    "name": "Simulateurs",
    "short_name": "Simulateurs",
    "url": "./#simulateurs",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Recrutement",
+   "short_name": "Recrutement",
+   "url": "./#recrutement",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Pointage",
+   "short_name": "Pointage",
+   "url": "./#pointage",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Vérifier un certificat",
+   "short_name": "Vérifier un certificat",
+   "url": "./#verification",
    "icons": [
     {
      "src": "icon-192.png",
